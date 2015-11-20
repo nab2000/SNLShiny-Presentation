@@ -1,0 +1,33 @@
+SNLvDS Shiny Package
+========================================================
+author: Nicholas Rose
+date: November 20, 2015
+
+Shiny Package Overview
+========================================================
+
+For more details on authoring R presentations click the
+**Help** button on the toolbar.
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+
+
+Shiny Table Description
+=======================================================
+The table produced after selecting an actor ... example table
+```{r}
+summary(cars)
+```
+
+Shiny Plot Description
+=======================================================
+The plot produce from the data is
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Application 
+=======================================================
