@@ -3,40 +3,36 @@ SNLvDS Shiny Package
 author: Nicholas Rose
 date: November 20, 2015
 
-Shiny Package Overview
+Package Overview
 ========================================================
 
-For more details on authoring R presentations click the
-**Help** button on the toolbar.
+This package was created to allow users ot view the SNLvDS data. This data was obtained to codncut a statistical analysis of which show had better actors/actresses, the Daily Show or Saturday Night Live (SNL) by webscrapping data from Wikepedia, IMDB, and Rotten Toamtoes. The  data from these websites was:
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
+- Cast member tables from [wikepedia] (https://en.wikipedia.org) 
+- Movies and TV show list for each actor obtained from [IMDB] (www.imdb.com)
+- Audience rankings each TV show or Movie from [Rotten Tomatoes] (www.rottentomatoes.com) 
 
+The code and additional details  can be found [here] (https://github.com/nab2000/SNL-v-DS.git). 
 
-
-Shiny Table Description
+Table Description
 =======================================================
-The table produced after selecting an actor ... example table
+After the information was obtained from the web, general statistics were created for every actor/actress, including the mean, median maximum and variance in the audience scores for every movie or show they were in. 
 
-```r
-summary(cars)
-```
+As an exmaple, this is the table of data created for Will Ferrell  
 
-```
-     speed           dist       
- Min.   : 4.0   Min.   :  2.00  
- 1st Qu.:12.0   1st Qu.: 26.00  
- Median :15.0   Median : 36.00  
- Mean   :15.4   Mean   : 42.98  
- 3rd Qu.:19.0   3rd Qu.: 56.00  
- Max.   :25.0   Max.   :120.00  
-```
+
+|   |Actor        | BegYear| EndYear|Show | RT_Mean| RT_Med| RT_Max| RT_SD|
+|:--|:------------|-------:|-------:|:----|-------:|------:|------:|-----:|
+|   |Will Ferrell |    1995|    2002|SNL  |      62|     66|     92|    19|
 
 Shiny Plot Description
 =======================================================
-The plot produce from the data is
+The main plot for the project (below) shows the average audience score versus lenght of time on each show
+
 ![plot of chunk unnamed-chunk-2](Presentation SNL Shiny-figure/unnamed-chunk-2-1.png) 
 
-Application 
+SNLvDS Application Advantage 
 =======================================================
+The [SNLvDS Shiny Application] (https://nab2000.shinyapps.io/SNLShiny), as comapred to the proejct page, allows users to dive more deeply into the data. 
+
+By selecting the actor they are interested in they can see the actor specific table and identify the actor on the main chart 

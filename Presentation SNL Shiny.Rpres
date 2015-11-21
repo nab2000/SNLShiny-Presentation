@@ -3,31 +3,48 @@ SNLvDS Shiny Package
 author: Nicholas Rose
 date: November 20, 2015
 
-Shiny Package Overview
+Package Overview
 ========================================================
 
-For more details on authoring R presentations click the
-**Help** button on the toolbar.
+This package was created to allow users ot view the SNLvDS data. This data was obtained to codncut a statistical analysis of which show had better actors/actresses, the Daily Show or Saturday Night Live (SNL) by webscrapping data from Wikepedia, IMDB, and Rotten Toamtoes. The  data from these websites was:
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
+- Cast member tables from [wikepedia] (https://en.wikipedia.org) 
+- Movies and TV show list for each actor obtained from [IMDB] (www.imdb.com)
+- Audience rankings each TV show or Movie from [Rotten Tomatoes] (www.rottentomatoes.com) 
 
+The code and additional details  can be found [here] (https://github.com/nab2000/SNL-v-DS.git). 
 
-
-Shiny Table Description
+Table Description
 =======================================================
-The table produced after selecting an actor ... example table
-```{r}
-summary(cars)
+After the information was obtained from the web, general statistics were created for every actor/actress, including the mean, median maximum and variance in the audience scores for every movie or show they were in. 
+
+As an exmaple, this is the table of data created for Will Ferrell  
+
+```{r, echo = F, }
+options(width = 1000)
+actor_list <- read.csv("Actor_Score.csv")
+sub_data <- actor_list[actor_list$Actor == "Will Ferrell", 1:8]
+sub_data$Actor <- factor(sub_data$Actor)
+rownames(sub_data) <- rep("", nrow(sub_data))
+library(knitr)
+kable(sub_data, digits = 0)
 ```
 
 Shiny Plot Description
 =======================================================
-The plot produce from the data is
-```{r, echo=FALSE}
-plot(cars)
+The main plot for the project (below) shows the average audience score versus lenght of time on each show
+
+```{r, echo=FALSE, fig.width = 10}
+library(ggplot2)
+actor_list <- read.csv("Actor_Score.csv")
+ actor_list$Years <- actor_list$EndYear - actor_list$BegYear + 1
+g <- ggplot(aes(x = Years, y = RT_Mean, col = Show), data = actor_list)
+g <- g+ geom_point() + ylab("Mean Rotten Tomatoe Score") + xlab("Years on the Show")
+g
 ```
 
-Application 
+SNLvDS Application Advantage 
 =======================================================
+The [SNLvDS Shiny Application] (https://nab2000.shinyapps.io/SNLShiny), as comapred to the proejct page, allows users to dive more deeply into the data. 
+
+By selecting the actor they are interested in they can see the actor specific table and identify the actor on the main chart 
